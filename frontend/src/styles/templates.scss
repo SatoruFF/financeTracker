@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Sonos&family=Montserrat&display=swap');
+
+$mainFont: 'Montserrat', sans-serif;
+
+$blockColor: #69b1ff;
+
+%centerTemplate {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

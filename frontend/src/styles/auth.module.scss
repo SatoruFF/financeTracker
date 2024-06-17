@@ -1,0 +1,50 @@
+@import "./templates.scss";
+
+.authWrapper {
+    * {
+        font-family: $mainFont !important;
+    }
+    @extend %centerTemplate;
+    flex-direction: column;
+    width: 100svw;
+    height: 100svh;
+    background: url("../assets/colors.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    h1 {
+        margin-bottom: 20px;
+        font-size: large;
+        color: black;
+    }
+
+    form {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        border-radius: 10px;
+        gap: 20px;
+        width: 40%;
+        height: 40%;
+        padding: 10px;
+        margin: 5px;
+        box-sizing: border-box;
+    }
+
+    .err {
+        color: orange;
+    }
+
+    input {
+        border-radius: 5px;
+        width: 80%;
+        height: 10%;
+        align-self: center;
+    }
+    .submitBtn {
+        width: 20%;
+        align-self: center;
+    }
+}

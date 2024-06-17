@@ -1,0 +1,72 @@
+@import "./templates.scss";
+
+.welcomeContainer {
+  width: 100svw;
+  height: 100svh;
+  text-align: center;
+  @extend %centerTemplate;
+  flex-direction: column;
+
+  background: url("../assets/towers.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  * {
+    font-family: $mainFont;
+  }
+
+  header {
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    box-sizing: border-box;
+    width: 70%;
+    padding: 10px;
+    border-radius: 10px;
+
+    h1 {
+      word-spacing: 2px; /* Интервал между словами */
+      letter-spacing: 1px; /* Интервал между буквами */
+      font-size: 2.5rem;
+      color: #333;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+    width: 70%;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 10px;
+
+    section {
+      margin-bottom: 20px;
+
+      p {
+        word-spacing: 2px; /* Интервал между словами */
+        letter-spacing: 1px; /* Интервал между буквами */
+        font-size: 1.2rem;
+        color: black;
+        line-height: 1.5;
+      }
+    }
+
+    .get-started-btn {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+}

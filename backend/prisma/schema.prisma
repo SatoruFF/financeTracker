@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Define User data model
+model User {
+  id             Int           @id @default(autoincrement())
+  userName       String?
+  email          String        @unique
+  password       String
+  avatar         String?
+  role           String        @default("USER")
+  userConfigs    UserConfig[]
+  categories     Category[]
+  transaction    Transaction[]
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+}
+
+model UserConfig {
+  id        Int      @id @default(autoincrement())
+  language  String?  @default("ENG")
+  theme     String?  @default("DARK")
+  userId    Int
+  user      User?    @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Define Category data model
+model Category {
+  id          Int           @id @default(autoincrement())
+  name        String
+  type        String // Expense or Income
+  user        User          @relation(fields: [userId], references: [id])
+  userId      Int
+  transaction Transaction[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+// Define Transaction data model
+model Transaction {
+  id          Int      @id @default(autoincrement())
+  amount      Float
+  description String?
+  date        DateTime
+  category    Category @relation(fields: [categoryId], references: [id])
+  categoryId  Int
+  user        User     @relation(fields: [userId], references: [id])
+  userId      Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

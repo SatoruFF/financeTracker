@@ -1,0 +1,8 @@
+@import "./templates.scss";
+
+.dasboardContent {
+    width: 100svw;
+    height: auto;
+    @extend %centerTemplate;
+    flex-direction: column;
+}
