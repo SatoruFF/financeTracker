@@ -6,15 +6,18 @@ import {
   Form,
   notification,
   Typography,
+  Input,
 } from "antd";
 import moment from "moment";
 import cn from "classnames";
 import styles from "../../styles/plans.module.scss";
+import PlansTable from '../common/PlansTable'
 const { Title, Paragraph, Text, Link } = Typography;
 
 const { RangePicker } = DatePicker;
 
 const Plans = () => {
+  const [goalName, setGoalName] = useState("");
   const [goalAmount, setGoalAmount] = useState(0);
   const [targetDate, setTargetDate] = useState(null);
 
@@ -56,6 +59,14 @@ const Plans = () => {
       <Title>Финансовые цели</Title>
       <div className={cn(styles.mainBoard)}>
         <Form layout="vertical">
+          <Form.Item label="Наименование финансовой цели">
+            <Input
+              value={goalName}
+              onChange={(e) => setGoalName(e.target.value)}
+              style={{ width: "100%" }}
+              placeholder="Введите наименование"
+            />
+          </Form.Item>
           <Form.Item label="Сумма финансовой цели">
             <InputNumber
               value={goalAmount}
@@ -80,6 +91,8 @@ const Plans = () => {
             </Button>
           </Form.Item>
         </Form>
+        <Title style={{color: "white"}}>Текущие цели</Title>
+        <PlansTable/>
       </div>
     </div>
   );
