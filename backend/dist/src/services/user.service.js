@@ -68,6 +68,11 @@ export class UserService {
                 throw new BadRequest(`Uncorrect data`);
             }
             const { accessToken } = generateJwt(user.id);
+            const userSettings = yield prisma.userConfig.findFirst({
+                where: {
+                    userId: user.id,
+                },
+            });
             return {
                 accessToken,
                 user: {
@@ -77,6 +82,7 @@ export class UserService {
                     avatar: user.avatar,
                     role: user.role,
                 },
+                userSettings,
             };
         });
     }

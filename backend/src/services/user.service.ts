@@ -78,6 +78,12 @@ export class UserService {
 
       const { accessToken } = generateJwt(user.id);
 
+      const userSettings = await prisma.userConfig.findFirst({
+        where: {
+          userId: user.id,
+        },
+      });
+
       return {
         accessToken,
         user: {
@@ -87,6 +93,7 @@ export class UserService {
           avatar: user.avatar,
           role: user.role,
         },
+        userSettings,
       }
   }
 

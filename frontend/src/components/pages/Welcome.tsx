@@ -5,7 +5,7 @@ import cn from "classnames";
 
 import styles from "../../styles/welcome.module.scss";
 import { useNavigate } from "react-router-dom";
-import { REGISTRATION } from "../../routes/public";
+import { LOGIN, REGISTRATION } from "../../routes/public";
 
 const Welcome: React.FC = () => {
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ const Welcome: React.FC = () => {
             финансовых целей.
           </p>
         </section>
-        <Button type="primary" onClick={() => navigate(REGISTRATION.route)}>
+        <Button type="primary" onClick={() => navigate(LOGIN.route)}>
           Начать
         </Button>
       </motion.div>
